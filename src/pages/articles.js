@@ -9,13 +9,9 @@ import RatePic from "../../public/images/articles/rate.jpeg";
 import { motion, useMotionValue } from 'framer-motion';
 import TransitionEffect from '@/components/TransitionEffect';
 
-
 const FramerImage = motion(Image);
 
-
-
 const MovingImg = ({title, img, link}) => {
-
     const x = useMotionValue(0);
     const y = useMotionValue(0);
     const imgRef = useRef(null);
@@ -32,29 +28,26 @@ const MovingImg = ({title, img, link}) => {
         y.set(0);
     }
 
-y
     return (
         <Link href={link} target='_blank'  onMouseMove={handleMouse} onMouseLeave={handleMouseLeave}>
-        <h2 className='capitalize text-xl font-semibold hover:underline'>{title}</h2>
-        <FramerImage style={{x:x, y:y}} initial={{opacity:0}} whileInView={{opacity:1, transition:{duration:0.2}}} ref={imgRef} src={img} alt={title} className="z-10 w-96 h-auto hidden absolute rounded-lg md:!hidden "/>
+            <h2 className='capitalize text-xl font-semibold hover:underline'>{title}</h2>
+            <FramerImage style={{x:x, y:y}} initial={{opacity:0}} whileInView={{opacity:1, transition:{duration:0.2}}} ref={imgRef} src={img} alt={title} className="z-10 w-96 h-auto hidden absolute rounded-lg md:!hidden "/>
         </Link>
     )
 }
-
 
 const Article = ({img, title, date, link}) => {
     return (
         <motion.li
         whileHover={{scale:1.05}}
-        inital={{x:0, y:300}}
-        whileInView={{x:0, y:50}}
+        initial={{x:0, y:200}}
+        whileInView={{x:0, y:100}}
         transition={{duration:0.5}}
         viewport={{once: true}}
         className='relative w-full p-4 py-6 my-4 rounded-xl flex items-center justify-between bg-light text-dark first: mt-0 border border-solid border-dark border-r-4 border-b-4 dark:border-light dark:bg-dark dark:text-light
         sm:flex-col'>
             <MovingImg title={title} img={img} link={link}></MovingImg>
-            <Link href={link} target='_blank'>
-            </Link>
+            <Link href={link} target='_blank'></Link>
             <span className="text-[#b4cbf0] font-semibold pl-4 sm:self-start sm:pl-0 xs:text-sm">{date}</span>
         </motion.li>
     )

@@ -35,13 +35,14 @@ useEffect(() => {
     return <span ref={ref}></span>
 }
 
+<Head>
+<title> Halara Soul - About</title>
+<meta name="description" content="About" />
+</Head>
+
 const about = () => {
     return (
         <>
-        <Head>
-            <title> Halara Soul - About</title>
-            <meta name="description" content="About" />
-        </Head>
         <TransitionEffect />
         <main className='flex w-full flex-col items-center justify-center dark:text-light'>
            <Layout className='pt-16'> 
@@ -78,7 +79,7 @@ const about = () => {
                         <span className='inline-block text-7xl font-bold md:text-6xl sm:text-5xl xs:text-4xl'>
                         <AnimatedNumber value={34} />+
                         </span>
-                        <h2 className='text-xl font-medium capitalize text-dark/75 dark:text-light/75 xl:text-center md:text-lg sm:text-base xs:text=sm'>Artwork</h2>
+                        <h2 className='text-xl font-medium capitalize text-dark/75 dark:text-light/75 xl:text-center md:text-lg sm:text-base xs:text-sm'>Artwork</h2>
                     </div>
 
                     <div className=' flex flex-col items-end justify-center xl:items-center'>

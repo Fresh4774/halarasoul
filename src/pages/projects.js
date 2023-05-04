@@ -1,5 +1,5 @@
-import AnimatedText from '@/components/AnimatedText';
-import Layout from '@/components/Layout';
+import AnimatedText from '../components/AnimatedText';
+import Layout from '../components/Layout';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -33,7 +33,7 @@ import TransitionEffect from '@/components/TransitionEffect';
 
 const FramerImage = motion(Image);
 
-const FeaturedProject = ({type, title, summary, img, link, homeLink}) => {
+const FeaturedProject = ({type, title, summary, img, link='/'}) => {
     return (
         <article className='w-full flex items-center justify-between relative rounded-3xl rounded-br-2xl border border-solid border-dark bg-light shadow-2xl p-12 dark:bg-dark dark:border-light dark:text-light
         lg:flex-col lg:p-8 xs:rounded-2xl xs:rounded-br-3xl xs:p-4'>
@@ -56,7 +56,7 @@ const FeaturedProject = ({type, title, summary, img, link, homeLink}) => {
             </Link>
             <p className='my-2 font-medium text-dark dark:text-light sm:text-sm '>{summary}</p>
             <div className='mt-2 flex items-center'>
-            <Link href={homeLink} className='w-10'><Image src={IconPic} alt="Halara Soul" /></Link>
+            <Link href={link} className='w-10'><Image src={IconPic} alt="Halara Soul" /></Link>
             <Link href={link} className="ml-4 flex items-center bg-dark text-light p-2 px-7 rounded-lg text-lg font-semibold hover:bg-light hover:text-dark border-2 border-solid border-transparent hover:border-dark dark:bg-light dark:text-dark hover:dark:bg-dark hover:dark:border-light hover:dark:text-light
             sm:px-4 sm:text-base">
                   More
@@ -68,7 +68,7 @@ const FeaturedProject = ({type, title, summary, img, link, homeLink}) => {
     )
 }
 
-const Project = ({type, title, img, link, homeLink}) => {
+const Project = ({type, title, img, link = '/', homeLink = '/'}) => {
     return (
 <article className='w-full flex flex-col items-center justify-between rounded-2xl border border-solid border-dark bg-light p-6 relative dark:bg-dark dark:border-light dark:text-light
 xs:p-4'>
@@ -96,13 +96,14 @@ md:-right-2 md:w-[101%] xs:h-[102%] xs:rounded-[1.5rem]' />
     )
 }
 
-const projects = () => {
-    return (
-        <>
-        <Head>
+<Head>
             <title> Halara Soul - Art Gallery</title>
             <meta name="description" content="About" />
         </Head>
+
+const projects = () => {
+    return (
+        <>
         <TransitionEffect />
         <main className='w-full mb-16 flex flex-col items-center justify-center'>
             <Layout className='pt-16'>
